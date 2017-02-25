@@ -3,7 +3,7 @@
 ![Ferrugem router logo](/assets/img/router-fjs.png) 
 
 
-**A basic router implementation to [Ferrugem](https://github.com/ferrugemjs/library).**
+**A basic router implementation to [FerrugemJS](https://github.com/ferrugemjs/library).**
 
 This is a basic implementation of routes for "Ferrugemjs", please feel free to do merge requests and improve this router or create your own.
 This router is implemented using "page.js".
