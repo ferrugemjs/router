@@ -22,10 +22,16 @@ jspm install npm:ferrugemjs-router
 
 eg. init-app.html file
 
-``` html
+``` xml
 <template no-view-model="true">
   <require from="ferrugemjs-router as rt" type="namespace"/>
   <div>
+    <rt:router-view>
+      <route path="/list-modules" view-model="apps/module-list"/>
+      <route path="/module-a/:id" view-model="apps/module-a"/>
+      <route path="/module-b/:id" view-model="apps/module-b"/>
+      <route path="/module-b/:id/:name" view-model="apps/module-b"/>
+    </rt:router-view> 
     <h1>Router tests</h1>
     <p>
       <a href="/list-modules">modules</a>
@@ -38,13 +44,7 @@ eg. init-app.html file
     </p>
     <p>
       <a href="/module-b/10/ops">change module-b name and id</a>
-    </p>    
-    <rt:router-view>
-      <route path="/list-modules" view-model="apps/module-list"/>
-      <route path="/module-a/:id" view-model="apps/module-a"/>
-      <route path="/module-b/:id" view-model="apps/module-b"/>
-      <route path="/module-b/:id/:name" view-model="apps/module-b"/>
-    </rt:router-view>   
+    </p> 
   </div>
 </template>
 ```
