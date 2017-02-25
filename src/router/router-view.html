@@ -1,0 +1,11 @@
+<template>
+	<div class="${this.styleName}">
+		<compose
+			if="this.route" 
+			id="${'_uid_route_'+this.uid}"
+			key:id="${'_uid_route_'+this.uid}"
+			view:from="${this.route.viewModel}"
+			prop:values="${this.route.params}"
+		/>
+	</div>
+</template>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Test Project</title>
+    <style>
+      .especial{
+        background-color: red;
+      }
+    </style>
+    <script src="jspm_packages/system.js"></script>
+    <script src="config.js"></script>
+  </head>
+  <body>    
+    <div app="dist/test/init-app"></div>
+    <div id="example"></div>
+    <script>
+      System.config({
+        map:{
+          "fjs-router":"dist/router/index",
+          "apps":"dist/test/apps"
+        }
+      });      
+      System.import("ferrugemjs");
+    </script>
+  </body>
+</html>
