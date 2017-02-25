@@ -8,6 +8,8 @@
 This is a basic implementation of routes for "Ferrugemjs", please feel free to do merge requests and improve this router or create your own.
 This router is implemented using "page.js".
 
+[![NPM](https://nodei.co/npm/ferrugemjs-router.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ferrugemjs-router/)
+
 ####how to start:
 clone
 [skeleton-typescript](https://github.com/ferrugemjs/skeleton-typescript) (recomended way)
