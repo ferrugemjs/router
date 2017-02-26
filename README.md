@@ -6,7 +6,7 @@
 **A basic router implementation to [FerrugemJS](https://github.com/ferrugemjs/library).**
 
 This is a basic implementation of routes for "Ferrugemjs", please feel free to do merge requests and improve this router or create your own.
-This router is implemented using "page.js".
+This router is implemented using [page.js](https://visionmedia.github.io/page.js/).
 
 [![NPM](https://nodei.co/npm/ferrugemjs-router.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ferrugemjs-router/)
 
@@ -48,3 +48,12 @@ eg. init-app.html file
   </div>
 </template>
 ```
+
+####hashbang
+
+``` xml
+<rt:router-view hashbang="true">
+  <route path="/list-modules" view-model="apps/module-list"/>
+</rt:router-view> 
+```
+

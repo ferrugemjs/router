@@ -9,7 +9,7 @@ System.config({
 
   map: {
     "es6-shim": "npm:es6-shim@0.35.1",
-    "ferrugemjs": "npm:ferrugemjs@0.11.5",
+    "ferrugemjs": "npm:ferrugemjs@0.11.7",
     "incremental-dom": "npm:incremental-dom@0.5.1",
     "page": "npm:page@1.7.1",
     "tslib": "npm:tslib@1.5.0",
@@ -44,10 +44,6 @@ System.config({
     },
     "npm:es6-shim@0.35.1": {
       "process": "github:jspm/nodelibs-process@0.1.2"
-    },
-    "npm:ferrugemjs@0.11.5": {
-      "css": "github:systemjs/plugin-css@0.1.32",
-      "incremental-dom": "npm:incremental-dom@0.5.1"
     },
     "npm:incremental-dom@0.5.1": {
       "process": "github:jspm/nodelibs-process@0.1.2"

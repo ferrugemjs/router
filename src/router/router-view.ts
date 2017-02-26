@@ -12,10 +12,12 @@ export class RouterView{
 	private refresh:Function;
 	private uid:number;
 	private styleName:string;
+	private hashbang:boolean;
 	constructor(){
 		this.styleName = "";
 		this.routes = [];
 		this.uid=1;
+		this.hashbang=false;
 	}
 	private attached(){
 		let _this_ = this;
@@ -27,7 +29,6 @@ export class RouterView{
 				_this_.refresh();
 			}.bind(route))
 		});
-		//(<any>page).start({hashbang:true});
-		(<any>page).start();
+		(<any>page).start({hashbang:this.hashbang});
 	}
 }
