@@ -1,6 +1,6 @@
 {
   "name": "ferrugemjs-router",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A basic router implementation",
   "main": false,
   "scripts": {
@@ -19,6 +19,7 @@
   },
   "jspm": {
     "registry": "npm",
+    "jspmPackage":true,
     "main": "index",
     "format": "amd",
     "directories": {

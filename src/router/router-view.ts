@@ -29,6 +29,6 @@ export class RouterView{
 				_this_.refresh();
 			}.bind(route))
 		});
-		(<any>page).start({hashbang:this.hashbang});
+		(<any>page).start({hashbang:this.hashbang?true:false});
 	}
 }
