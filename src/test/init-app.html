@@ -1,5 +1,14 @@
 <template no-view-model="true">
 	<require from="../router/index as rt" type="namespace"/>
+	<style>
+		.router-box{
+			padding:10px;
+			border:4px dotted #febabe;
+			float:left;
+			width:200px;
+			min-height:200px;
+		}
+	</style>
 	<div>
 		<h1>Router tests</h1>
 		<p>
@@ -14,7 +23,7 @@
 		<p>
 			<a href="/module-b/10/ops">change module-b name and id</a>
 		</p>		
-		<rt:router-view>
+		<rt:router-view style-name="router-box" hashbang="true">
 			<route path="/list-modules" view-model="apps/module-list"/>
 			<route path="/module-a/:id" view-model="apps/module-a"/>
 			<route path="/module-b/:id" view-model="apps/module-b"/>

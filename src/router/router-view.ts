@@ -1,5 +1,8 @@
 import page = require("page");
 
+let n_uid_route:number = 554;
+
+
 export interface IRoute{
 	path:string;
 	viewModel:string;
@@ -10,14 +13,15 @@ export class RouterView{
 	private routes:IRoute[];
 	private route:IRoute;
 	private refresh:Function;
-	private uid:number;
 	private styleName:string;
 	private hashbang:boolean;
 	constructor(){
 		this.styleName = "";
 		this.routes = [];
-		this.uid=1;
 		this.hashbang=false;
+	}
+	private get uid():number{
+		return n_uid_route;
 	}
 	private attached(){
 		let _this_ = this;
@@ -25,7 +29,7 @@ export class RouterView{
 			page(route.path,function(context:{params:{}}){
 				this.params = context.params;
 				_this_.route = this;
-				_this_.uid++;
+				n_uid_route++;
 				_this_.refresh();
 			}.bind(route))
 		});
