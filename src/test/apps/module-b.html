@@ -2,5 +2,7 @@
 	<div>
 		<h3>module B</h3>
 		<strong>${this.id} - ${this.name}</strong>
+		<input type="text" value="${this.name}" change.bind="this.name"/>
+		<button click.trigger="this.save">save</button>
 	</div>
 </template>

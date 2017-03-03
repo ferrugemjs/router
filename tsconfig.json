@@ -12,6 +12,9 @@
 		,"noEmitHelpers":true 
 		,"suppressImplicitAnyIndexErrors": true
     },
+    "include": [
+        "jspm_packages/npm/event-emitter-lite@*/*.d.ts"
+    ],
     "exclude": [
         "node_modules"
 		,"dist"

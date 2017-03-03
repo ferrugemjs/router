@@ -1,9 +1,14 @@
-<template no-view-model="true">
+<template>
 	<require from="./module-a"/>
 	<require from="./module-b"/>
 	<div>
 		<h2>List Modules</h2>
 		<module-a/>
 		<module-b name="test list"/>
+
+		<p each="user in this.users">
+			<span>${user.id} - ${user.name}</span>
+		</p>
+
 	</div>
 </template>

@@ -1,6 +1,6 @@
 {
   "name": "ferrugemjs-router",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A basic router implementation",
   "main": false,
   "scripts": {
@@ -30,6 +30,7 @@
     },
     "devDependencies": {
       "es6-shim": "0.35.1",
+      "event-emitter-lite": "1.0.5",
       "ferrugemjs": "^0.11.7",
       "incremental-dom": "^0.5.1",
       "tslib": "1.5.0"
