@@ -29,6 +29,9 @@
 			<route path="/module-b/:id" view-model="apps/module-b"/>
 			<route path="/module-b/:id/:name" view-model="apps/module-b"/>
 		</rt:router-view>	
-		<rt:router-redirect path="/list-modules"/>	
+		<rt:router-redirect timeout="6000" path="/list-modules"/>	
+		<script>
+			_rt.redirect({path:"/module-a/12",timeout:8000});
+		</script>
 	</div>
 </template>

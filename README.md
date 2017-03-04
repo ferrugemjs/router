@@ -90,3 +90,12 @@ constructor(){
 ``` xml
 <rt:router-view routes="this.routeList"/>
 ```
+
+
+####redirect from a script tag
+
+``` html
+    <script>
+      _rt.redirect({path:"/module-a/12",timeout:8000});
+    </script>
+```
