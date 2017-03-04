@@ -1,6 +1,6 @@
 {
   "name": "ferrugemjs-router",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A basic router implementation with jspmPackage",
   "main": false,
   "scripts": {
@@ -40,7 +40,7 @@
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-connect": "^2.3.1",
-    "gulp-ferrugemjs": "^0.11.10",
+    "gulp-ferrugemjs": "^0.11.11",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "gulp-typescript": "^2.11.0",

@@ -57,3 +57,36 @@ eg. init-app.html file
 </rt:router-view> 
 ```
 
+####redirect
+
+``` xml
+<rt:router-redirect path="/list-modules"/>
+```
+
+
+####redirect with timeout
+
+``` xml
+<rt:router-redirect 
+  path="/list-modules"
+  timeout="4000"
+/>
+```
+
+
+####dinamic route list
+
+``` typescript
+constructor(){
+  this.routeList = [
+    {path:"/list-modules",viewModel:"apps/module-list"}
+    ,{path:"/module-a/:id",viewModel:"apps/module-a"}
+    ,{path:"/module-b/:id/:name",viewModel:"apps/module-b"}
+  ];  
+}
+
+```
+
+``` xml
+<rt:router-view routes="this.routeList"/>
+```
