@@ -95,7 +95,24 @@ constructor(){
 ####redirect from a script tag
 
 ``` html
-    <script>
-      _rt.redirect({path:"/module-a/12",timeout:8000});
-    </script>
+<script>
+  _rt.redirect({path:"/module-a/12",timeout:8000});
+</script>
 ```
+
+
+####redirect from a representative function
+
+``` xml
+<template>
+  <require from="ferrugemjs-router as router-redirect" type="script"/>
+  <div>
+    <router-redirect 
+      path="/list-modules"
+      timeout="3000"
+    />    
+  </div>
+</template>
+```
+
+

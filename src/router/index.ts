@@ -6,3 +6,5 @@ export {router_redirect};
 
 import redirect from "./router-redirect-fn";
 export {redirect};
+
+export default redirect;
