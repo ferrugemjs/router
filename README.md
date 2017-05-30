@@ -16,7 +16,11 @@ clone
 
 ####individual install
 
-jspm install npm:ferrugemjs-router
+npm install ferrugemjs-router --save
+
+in config.js.
+
+"ferrugemjs-router":"node_modules/ferrugemjs-router/dist/router"
 
 ####Usage
 
@@ -24,7 +28,7 @@ eg. init-app.html file
 
 ``` xml
 <template no-view-model="true">
-  <require from="ferrugemjs-router as rt" type="namespace"/>
+  <require from="ferrugemjs-router/index as rt" type="namespace"/>
   <div>
     <rt:router-view>
       <route path="/list-modules" view-model="apps/module-list"/>
@@ -105,7 +109,7 @@ constructor(){
 
 ``` xml
 <template>
-  <require from="ferrugemjs-router as router-redirect" type="script"/>
+  <require from="ferrugemjs-router/index as router-redirect" type="script"/>
   <div>
     <router-redirect 
       path="/list-modules"

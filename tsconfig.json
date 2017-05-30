@@ -11,11 +11,14 @@
 		,"removeComments":true
 		,"noEmitHelpers":true 
 		,"suppressImplicitAnyIndexErrors": true
+        ,"importHelpers":true
+        ,"baseUrl": "./"
+        ,"paths": {
+            "tslib" : ["jspm_packages/npm/tslib@1.5.0/tslib.d.ts"]
+            ,"event-emitter-lite":["node_modules/event-emitter-lite/dist/amd/event-emitter.d.ts"]
+            ,"page":["src/router/page.d.ts"]
+        }
     },
-    "include": [
-        "jspm_packages/npm/event-emitter-lite@*/*.d.ts"
-        ,"src/**/*.d.ts"
-    ],
     "exclude": [
         "node_modules"
 		,"dist"

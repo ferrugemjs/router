@@ -10,20 +10,27 @@
         background-color: red;
       }
     </style>
-    <script src="jspm_packages/system.js"></script>
-    <script src="config.js"></script>
+    <script src="node_modules/requirejs/require.js"></script>
   </head>
   <body>    
     <div app="dist/test/init-app"></div>
     <div id="example"></div>
     <script>
-      System.config({
-        map:{
-          "ferrugemjs-router":"dist/router/index",
-          "apps":"dist/test/apps"
+      requirejs.config({
+        baseUrl: '.',
+        paths: {
+          "page":"node_modules/page/page"
+          ,"event-emitter-lite":"node_modules/event-emitter-lite/dist/amd/EventEmitter"
+          ,"incremental-dom":"node_modules/incremental-dom/dist/incremental-dom-min"
+          ,"ferrugemjs":"node_modules/ferrugemjs/dist/core/bootstrap"
+          ,"ferrugemjs-router":"dist/router"
+
+          ,"apps":"dist/test/apps"
         }
-      });      
-      System.import("ferrugemjs");
+      });
+      require(["ferrugemjs"],function(_mod){
+        console.log(_mod)
+      });
     </script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 <template no-view-model="true">
-	<require from="ferrugemjs-router as rt" type="namespace"/>
-	<require from="ferrugemjs-router as router-redirect" type="script"/>
+	<require from="ferrugemjs-router/index as rt" type="namespace"/>
+	<require from="ferrugemjs-router/index as router-redirect" type="script"/>
 	<style>
 		.router-box{
 			padding:10px;
@@ -23,7 +23,8 @@
 		</p>
 		<p>
 			<a href="/module-b/10/ops">change module-b name and id</a>
-		</p>		
+		</p>
+				
 		<rt:router-view style-name="router-box" hashbang="true">
 			<route path="/list-modules" view-model="apps/module-list"/>
 			<route path="/module-a/:id" view-model="apps/module-a"/>

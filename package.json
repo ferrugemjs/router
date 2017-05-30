@@ -1,10 +1,17 @@
 {
   "name": "ferrugemjs-router",
-  "version": "0.0.11",
+  "version": "0.1.0",
   "description": "A basic router implementation with jspmPackage",
   "main": false,
+  "files":[
+    "dist/router/index.js"
+    ,"dist/router/router-redirect-fn.js"
+    ,"dist/router/router-redirect-html.js"
+    ,"dist/router/router-redirect.js"
+    ,"dist/router/router-view.html.js"
+    ,"dist/router/router-view.js"
+  ],
   "scripts": {
-    "jspm": "./node_modules/.bin/jspm",
     "gulp": "./node_modules/.bin/gulp",
     "watch": "gulp watch",
     "compile": "gulp compile",
@@ -19,34 +26,28 @@
   },
   "jspm": {
     "registry": "npm",
-    "jspmPackage":true,
+    "jspmPackage": true,
     "main": "index",
     "format": "amd",
     "directories": {
       "dist": "dist/router"
     },
-    "dependencies": {
-      "page": "^1.7.1"
-    },
-    "devDependencies": {
-      "es6-shim": "0.35.1",
-      "event-emitter-lite": "1.0.5",
-      "ferrugemjs": "^0.11.8",
-      "incremental-dom": "^0.5.1",
-      "tslib": "1.5.0"
-    }
+    "dependencies": {},
+    "devDependencies": {}
   },
   "devDependencies": {
+    "event-emitter-lite": "^1.0.7",
+    "ferrugemjs": "^0.13.0",
     "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.0",
     "gulp-connect": "^2.3.1",
-    "gulp-ferrugemjs": "^0.11.11",
+    "gulp-ferrugemjs": "^0.12.5",
     "gulp-rename": "^1.2.2",
-    "gulp-replace": "^0.5.4",
-    "gulp-typescript": "^2.11.0",
-    "gulp-uglify": "^1.5.2",
-    "http-proxy-middleware": "^0.14.0",
-    "jspm": "^0.16.39",
-    "require-dir": "^0.3.0"
+    "gulp-typescript": "^3.1.7",
+    "require-dir": "^0.3.0",
+    "requirejs": "^2.3.3",
+    "typescript": "^2.3.3"
+  },
+  "dependencies": {
+    "page": "^1.7.1"
   }
 }
