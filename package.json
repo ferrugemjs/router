@@ -1,12 +1,12 @@
 {
   "name": "ferrugemjs-router",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A basic router implementation with jspmPackage",
   "main": false,
   "files":[
     "dist/router/index.js"
     ,"dist/router/router-redirect-fn.js"
-    ,"dist/router/router-redirect-html.js"
+    ,"dist/router/router-redirect.html.js"
     ,"dist/router/router-redirect.js"
     ,"dist/router/router-view.html.js"
     ,"dist/router/router-view.js"
