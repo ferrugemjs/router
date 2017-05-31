@@ -22,15 +22,13 @@
           "page":"node_modules/page/page"
           ,"event-emitter-lite":"node_modules/event-emitter-lite/dist/amd/EventEmitter"
           ,"incremental-dom":"node_modules/incremental-dom/dist/incremental-dom-min"
-          ,"ferrugemjs":"node_modules/ferrugemjs/dist/core/bootstrap"
+          ,"ferrugemjs":"node_modules/ferrugemjs/dist/core"
           ,"ferrugemjs-router":"dist/router"
 
           ,"apps":"dist/test/apps"
         }
       });
-      require(["ferrugemjs"],function(_mod){
-        console.log(_mod)
-      });
+      require(["ferrugemjs/bootstrapper"],function(_mod){});
     </script>
   </body>
 </html>

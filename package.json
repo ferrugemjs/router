@@ -1,6 +1,6 @@
 {
   "name": "ferrugemjs-router",
-  "version": "0.1.1",
+  "version": "0.15.0",
   "description": "A basic router implementation with jspmPackage",
   "main": false,
   "files":[
@@ -37,10 +37,10 @@
   },
   "devDependencies": {
     "event-emitter-lite": "^1.0.7",
-    "ferrugemjs": "^0.13.0",
+    "ferrugemjs": "^0.15.0",
     "gulp": "^3.9.1",
     "gulp-connect": "^2.3.1",
-    "gulp-ferrugemjs": "^0.12.5",
+    "gulp-ferrugemjs": "^0.15.0",
     "gulp-rename": "^1.2.2",
     "gulp-typescript": "^3.1.7",
     "require-dir": "^0.3.0",
