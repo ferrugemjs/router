@@ -26,6 +26,7 @@
 		</p>
 				
 		<rt:router-view style-name="router-box" hashbang="true">
+			<route path="/" redirect="/index.html"/>
 			<route path="/list-modules" view-model="apps/module-list"/>
 			<route path="/module-a/:id" view-model="apps/module-a"/>
 			<route path="/module-b/:id" view-model="apps/module-b"/>

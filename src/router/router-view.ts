@@ -7,6 +7,7 @@ export interface IRoute{
 	path:string;
 	viewModel:string;
 	params?:{};
+	redirect?:string;
 }
 
 export class RouterView{
@@ -25,14 +26,18 @@ export class RouterView{
 	}
 	private attached(){
 		let _this_ = this;
-		this.routes.forEach(route=>{
+		this.routes.forEach(route => {
 			page(route.path,function(context:{params:{}}){
-				this.params = context.params;
-				_this_.route = this;
-				n_uid_route++;
-				_this_.refresh();
+				if(route.redirect){
+					(<any>page).redirect(route.redirect);	
+				}else{
+					this.params = context.params;
+					_this_.route = this;
+					n_uid_route++;
+					_this_.refresh();
+				}
 			}.bind(route))
 		});
-		(<any>page).start({hashbang:this.hashbang?true:false});
+		(<any>page).start({ hashbang:this.hashbang ? true:false });
 	}
 }
