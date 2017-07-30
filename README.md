@@ -128,3 +128,10 @@ constructor(){
 </rt:router-view> 
 ```
 
+#### redirect from "/" to "/index.html"
+
+``` xml
+<rt:router-view hashbang="true">
+  <route path="/" redirect="/index.html"/>
+</rt:router-view> 
+```
