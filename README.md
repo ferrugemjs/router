@@ -1,4 +1,4 @@
-#Router to FerrugemJS
+# Router to FerrugemJS
 
 ![Ferrugem router logo](/assets/img/router-fjs.png) 
 
@@ -10,11 +10,11 @@ This router is implemented using [page.js](https://visionmedia.github.io/page.js
 
 [![NPM](https://nodei.co/npm/ferrugemjs-router.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ferrugemjs-router/)
 
-####how to start:
+#### how to start:
 clone
 [skeleton-typescript](https://github.com/ferrugemjs/skeleton-typescript) (recomended way)
 
-####individual install
+#### individual install
 
 npm install ferrugemjs-router --save
 
@@ -22,7 +22,7 @@ in config.js.
 
 "ferrugemjs-router":"node_modules/ferrugemjs-router/dist/router"
 
-####Usage
+#### Usage
 
 eg. init-app.html file
 
@@ -53,7 +53,7 @@ eg. init-app.html file
 </template>
 ```
 
-####hashbang
+#### hashbang
 
 ``` xml
 <rt:router-view hashbang="true">
@@ -61,14 +61,14 @@ eg. init-app.html file
 </rt:router-view> 
 ```
 
-####redirect
+#### redirect
 
 ``` xml
 <rt:router-redirect path="/list-modules"/>
 ```
 
 
-####redirect with timeout
+#### redirect with timeout
 
 ``` xml
 <rt:router-redirect 
@@ -78,7 +78,7 @@ eg. init-app.html file
 ```
 
 
-####dinamic route list
+#### dinamic route list
 
 ``` typescript
 constructor(){
@@ -96,7 +96,7 @@ constructor(){
 ```
 
 
-####redirect from a script tag
+#### redirect from a script tag
 
 ``` html
 <script>
@@ -105,7 +105,7 @@ constructor(){
 ```
 
 
-####redirect from a representative function
+#### redirect from a representative function
 
 ``` xml
 <template>
@@ -119,4 +119,12 @@ constructor(){
 </template>
 ```
 
+#### redirect from a path to other
+
+``` xml
+<rt:router-view hashbang="true">
+  <route path="/" redirect="/list-modules"/>
+  <route path="/list-modules" view-model="apps/module-list"/>
+</rt:router-view> 
+```
 
