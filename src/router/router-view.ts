@@ -24,7 +24,7 @@ export class RouterView{
 	private get uid():number{
 		return n_uid_route;
 	}
-	private attached(){
+	private connectedCallback(){
 		let _this_ = this;
 		this.routes.forEach(route => {
 			page(route.path,function(context:{params:{}}){
