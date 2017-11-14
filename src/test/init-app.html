@@ -27,10 +27,10 @@
 				
 		<rt:router-view style-name="router-box" hashbang="true">
 			<route path="/" redirect="/index.html"/>
-			<route path="/list-modules" view-model="apps/module-list"/>
-			<route path="/module-a/:id" view-model="apps/module-a"/>
-			<route path="/module-b/:id" view-model="apps/module-b"/>
-			<route path="/module-b/:id/:name" view-model="apps/module-b"/>
+			<route path="/list-modules" view="apps/module-list"/>
+			<route path="/module-a/:id" view="apps/module-a"/>
+			<route path="/module-b/:id" view="apps/module-b"/>
+			<route path="/module-b/:id/:name" view="apps/module-b"/>
 		</rt:router-view>	
 		<rt:router-redirect timeout="3000" path="/list-modules"/>	
 		<script>

@@ -1,6 +1,6 @@
 {
   "name": "ferrugemjs-router",
-  "version": "0.21.0",
+  "version": "0.22.0",
   "description": "A basic router implementation with jspmPackage",
   "main": false,
   "files": [

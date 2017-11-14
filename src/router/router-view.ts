@@ -5,7 +5,7 @@ let n_uid_route:number = 554;
 
 export interface IRoute{
 	path:string;
-	viewModel:string;
+	view:string;
 	params?:{};
 	redirect?:string;
 }

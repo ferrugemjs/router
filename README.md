@@ -27,14 +27,14 @@ in config.js.
 eg. init-app.html file
 
 ``` xml
-<template no-view-model="true">
+<template no-model>
   <require from="ferrugemjs-router/index as rt" type="namespace"/>
   <div>
     <rt:router-view>
-      <route path="/list-modules" view-model="apps/module-list"/>
-      <route path="/module-a/:id" view-model="apps/module-a"/>
-      <route path="/module-b/:id" view-model="apps/module-b"/>
-      <route path="/module-b/:id/:name" view-model="apps/module-b"/>
+      <route path="/list-modules" view="apps/module-list"/>
+      <route path="/module-a/:id" view="apps/module-a"/>
+      <route path="/module-b/:id" view="apps/module-b"/>
+      <route path="/module-b/:id/:name" view="apps/module-b"/>
     </rt:router-view> 
     <h1>Router tests</h1>
     <p>
@@ -57,7 +57,7 @@ eg. init-app.html file
 
 ``` xml
 <rt:router-view hashbang="true">
-  <route path="/list-modules" view-model="apps/module-list"/>
+  <route path="/list-modules" view="apps/module-list"/>
 </rt:router-view> 
 ```
 
@@ -83,10 +83,10 @@ eg. init-app.html file
 ``` typescript
 constructor(){
   this.routeList = [
-    {path:"/list-modules",viewModel:"apps/module-list"}
-    ,{path:"/module-a/:id",viewModel:"apps/module-a"}
-    ,{path:"/module-b/:id/:name",viewModel:"apps/module-b"}
-  ];  
+    {path:"/list-modules",view:"apps/module-list"}
+    ,{path:"/module-a/:id",view:"apps/module-a"}
+    ,{path:"/module-b/:id/:name",view:"apps/module-b"}
+  ];
 }
 
 ```
@@ -114,7 +114,7 @@ constructor(){
     <router-redirect 
       path="/list-modules"
       timeout="3000"
-    />    
+    />
   </div>
 </template>
 ```
@@ -124,7 +124,7 @@ constructor(){
 ``` xml
 <rt:router-view hashbang="true">
   <route path="/" redirect="/list-modules"/>
-  <route path="/list-modules" view-model="apps/module-list"/>
+  <route path="/list-modules" view="apps/module-list"/>
 </rt:router-view> 
 ```
 
