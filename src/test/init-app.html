@@ -24,20 +24,22 @@
 		<p>
 			<a href="/module-b/10/ops">change module-b name and id</a>
 		</p>
-				
+		<p>
+			<a href="/sub-route">sub-route</a>
+		</p>		
 		<rt:router-view style-name="router-box" hashbang="true">
 			<route path="/" redirect="/index.html"/>
 			<route path="/list-modules" view="apps/module-list"/>
 			<route path="/module-a/:id" view="apps/module-a"/>
 			<route path="/module-b/:id" view="apps/module-b"/>
 			<route path="/module-b/:id/:name" view="apps/module-b"/>
+			<route path="/sub-route" view="apps/sub-route"/>
 		</rt:router-view>	
-		<rt:router-redirect timeout="3000" path="/list-modules"/>	
-		<script>
+		<rt:router-redirect timeout="400" path="/list-modules"/>	
+		<script if="1 > 4">
 			_rt.redirect({path:"/module-a/12",timeout:8000});
-		</script>
-		
-		<router-redirect if="1 < 4" timeout="10000" path="/list-modules"/>
+		</script>		
+		<router-redirect if="1 > 4" timeout="10000" path="/list-modules"/>
 		
 	</div>
 </template>

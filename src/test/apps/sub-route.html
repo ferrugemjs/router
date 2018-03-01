@@ -1,0 +1,21 @@
+<template>
+	<require from="ferrugemjs-router/index as rt" type="namespace"/>
+	<style type="text/css">
+		.sub-route{
+			width: 97%;
+			height: 80px;
+			border: 4px dotted #222;
+			border-radius: 5px;
+		}
+	</style>
+	<div>
+		<div class="sub-route">
+			<rt:router-view hashbang="true">
+				<route path="/sub-module/:id" view="apps/module-a"/>
+			</rt:router-view>			
+		</div>
+		<p>
+			<a href="/sub-module/123">sub-module</a>
+		</p>
+	</div>
+</template>
