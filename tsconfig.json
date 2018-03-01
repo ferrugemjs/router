@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "target": "es5"
+        ,"lib": ["dom", "es6", "es2015"]
         ,"module": "amd"
         ,"moduleResolution": "classic"
         ,"outDir": "./dist"

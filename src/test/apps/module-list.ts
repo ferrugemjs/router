@@ -1,9 +1,6 @@
 import usersStore from "./test-store";
 import {IEventSubscribe} from "event-emitter-lite";
 
-
-
-
 export class ModuleList{
 	private refresh:Function;
 	private insc:IEventSubscribe;
