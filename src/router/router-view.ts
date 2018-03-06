@@ -34,8 +34,9 @@ export class RouterView{
 				if(route.redirect){
 					(<any>page).redirect(route.redirect);	
 				}else if(route.routerView){
-					const {path, view, params, redirect} = <IRoute>this;
-					route.routerView.route = {path, view, params, redirect};
+					const {path, view, redirect} = <IRoute>this;
+					route.routerView.route = {path, view, params:context.params, redirect};
+					//route.routerView.route = Object.assign({},JSON.parse(JSON.stringify(this)));
 					n_uid_route++;
 					route.routerView.refresh();
 				}
