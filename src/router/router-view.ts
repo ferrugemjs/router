@@ -46,7 +46,7 @@ export class RouterView{
 	private updateRoute(proute:IRoute){
 		proute.routerView = this;
 	}
-	private connectedCallback(){
+	private attached(){
 		let localPathsToUpdate:{index:number,path:string}[] = this.routes.map(({path},index) => ({
 			index
 			,path:path
@@ -63,7 +63,7 @@ export class RouterView{
 		this.routes.length = 0;
 		localPathsToUpdate.length = 0;
 	}
-	private disconnectedCallback(){
+	private detached(){
 		global_routes.forEach((route,indx) => {
 			if(route.routerView && route.routerView.extId === this.extId){
 				global_routes[indx].routerView = null;

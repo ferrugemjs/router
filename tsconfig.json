@@ -18,6 +18,9 @@
             "tslib" : ["node_modules/tslib/tslib.d.ts"]
             ,"event-emitter-lite":["node_modules/event-emitter-lite/dist/amd/event-emitter.d.ts"]
             ,"page":["src/router/page.d.ts"]
+            ,"ferrugemjs-router/router-view.html":["src/router/router-view.html"]
+            ,"ferrugemjs-router/router-redirect.html":["src/router/router-redirect.html"]
+            ,"ferrugemjs-router/router-redirect-fn":["src/router/router-redirect-fn"]
         }
     },
     "exclude": [

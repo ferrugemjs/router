@@ -7,7 +7,7 @@ export class RouterRedirect{
 		this.path="";
 		this.timeout = 123;
 	}
-	private connectedCallback():void{		
+	private attached():void{		
 		redirect({
 			path:this.path
 			,timeout:this.timeout
