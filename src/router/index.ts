@@ -1,8 +1,8 @@
-import router_view from "ferrugemjs-router/router-view.html";
-export {router_view};
+import routerView from "ferrugemjs-router/router-view.html";
+export {routerView};
 
-import router_redirect from "ferrugemjs-router/router-redirect.html";
-export {router_redirect};
+import routerRedirect from "ferrugemjs-router/router-redirect.html";
+export {routerRedirect};
 
 import redirect from "ferrugemjs-router/router-redirect-fn";
 export {redirect};
