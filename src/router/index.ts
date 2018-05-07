@@ -1,8 +1,8 @@
-import router_view from "./router-view.html";
-export {router_view};
+import routerView from "./router-view.html";
+export {routerView};
 
-import router_redirect from "./router-redirect.html";
-export {router_redirect};
+import routerRedirect from "./router-redirect.html";
+export {routerRedirect};
 
 import redirect from "./router-redirect-fn";
 export {redirect};

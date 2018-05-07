@@ -18,17 +18,28 @@
     <script>
       requirejs.config({
         baseUrl: '.',
+        packages: [
+            {
+                name: "ferrugemjs",
+                location: "node_modules/ferrugemjs/",
+                main: "index"
+            },
+            {
+                name: "ferrugemjs-router",
+                location: "dist/router",
+                main: "index"
+            }
+        ],
         paths: {
           "page":"node_modules/page/page"
           ,"event-emitter-lite":"node_modules/event-emitter-lite/dist/amd/EventEmitter"
           ,"incremental-dom":"node_modules/incremental-dom/dist/incremental-dom-min"
-          ,"ferrugemjs":"node_modules/ferrugemjs/dist/core"
-          ,"ferrugemjs-router":"dist/router"
-
           ,"apps":"dist/test/apps"
         }
       });
-      require(["ferrugemjs/bootstrapper"],function(_mod){});
+      require(["ferrugemjs/dist/core/bootstrapper"],function(_bootstrapper){
+         _bootstrapper.default();
+      });
     </script>
   </body>
 </html>

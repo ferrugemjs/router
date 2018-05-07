@@ -10,4 +10,7 @@ export class ModuleB{
 	private save(){
 		usersStore.save({id:0,name:this.name});
 	}
+	private connectedCallback(){
+		//console.log(this);
+	}
 }

@@ -1,8 +1,15 @@
 <template>
+	<style>
+		.module-b{
+			border: 1px solid red;
+		}
+	</style>
 	<div>
-		<h3>module B</h3>
-		<strong>${this.id} - ${this.name}</strong>
-		<input type="text" value="${this.name}" change.bind="this.name"/>
-		<button click.trigger="this.save">save</button>
+		<div class="module-b">
+			<h3>module B</h3>
+			<strong>id:${this.id} - name:${this.name}</strong>
+			<input type="text" value="${this.name}" change.bind="this.name"/>
+			<button click.trigger="this.save">save</button>
+		</div>
 	</div>
 </template>
