@@ -28,7 +28,7 @@ eg. init-app.html file
 
 ``` xml
 <template no-model>
-  <require from="ferrugemjs-router/index as rt" type="namespace"/>
+  <require from="ferrugemjs-router as rt" type="namespace"/>
   <div>
     <rt:router-view>
       <route path="/list-modules" view="apps/module-list"/>
