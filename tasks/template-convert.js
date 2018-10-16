@@ -8,7 +8,7 @@ gulp.task('template',function(){
     return gulp.src([
         "./src/**/*.html"
     ])
-    .pipe(ferrugemjs({formatCode:true}))
+    .pipe(ferrugemjs({env: 'production'}))
     .pipe(beautify({indentSize: 2}))
     .pipe(rename({
         extname: ".html.js"
