@@ -41,3 +41,12 @@ dist/test
 
 #.npmrc
 .npmrc
+
+#src
+src
+
+#tasks
+tasks
+
+#Gulpfile.js
+Gulpfile.js
