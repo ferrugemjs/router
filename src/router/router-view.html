@@ -2,8 +2,8 @@
 	<div class="${this.styleName}">
 		<compose
 			if="this.route" 
-			id="${'_uid_route_'+this.uid}"
-			key:id="${'_uid_route_'+this.uid}"
+			id="${'_uid_route_'+this.route.nuid}"
+			key:id="${'_uid_route_'+this.route.nuid}"
 			view:from="${this.route.view}"
 			prop:values="${this.route.params}"
 		/>

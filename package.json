@@ -1,6 +1,6 @@
 {
   "name": "ferrugemjs-router",
-  "version": "0.30.0",
+  "version": "0.30.1",
   "description": "A basic router implementation with jspmPackage",
   "main": "dist/router/index.js",
   "scripts": {
@@ -17,21 +17,20 @@
     "url": "https://github.com/ferrugemjs/router"
   },
   "devDependencies": {
-    "event-emitter-lite": "^1.6.0",
     "ferrugemjs": "1.7.0",
-    "ferrugemjs-node": "0.35.0",
-    "gulp": "^3.9.1",
+    "ferrugemjs-node": "^0.35.1",
+    "gulp": "3.9.1",
     "gulp-connect": "^2.3.1",
-    "gulp-ferrugemjs": "^0.19.0",
+    "gulp-ferrugemjs": "^0.19.1",
     "gulp-jsbeautify": "^0.1.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-typescript": "^3.1.7",
+    "gulp-rename": "^1.4.0",
+    "gulp-typescript": "^4.0.1",
     "require-dir": "^1.0.0",
-    "requirejs": "^2.3.3",
-    "tslib": "1.9.0",
-    "typescript": "^2.3.3"
+    "requirejs": "^2.3.6",
+    "tslib": "1.9.3",
+    "typescript": "^3.0.3"
   },
   "dependencies": {
-    "page": "^1.7.1"
+    "page": "^1.10.2"
   }
 }
