@@ -53,7 +53,7 @@ export class RouterView{
 	}
 	private attached(){
 		//console.log('attached!!!',this.hashbang);
-		if(this.hashbang && global_routes.length){
+		if(this.hashbang && global_routes.length === this.indexRoutes.length){
 			(<any>page).start({ hashbang:this.hashbang ? true:false });
 		}
 	}
