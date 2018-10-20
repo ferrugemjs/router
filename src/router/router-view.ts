@@ -9,44 +9,61 @@ export interface IRoute{
 	nuid:string;
 }
 
+const global_routes:IRoute[] = [];
+let global_uid = new Date().getTime();
+
 export class RouterView{
-	private routes:IRoute[];
+	public styleName:string;
+	public hashbang:boolean;
+	public base:string;
+	private indexRoutes:number[] = [];
 	private refresh:Function;
-	private styleName:string;
-	private hashbang:boolean;
-	private nuid:string = `${new Date().getTime()}`;
+	private nuid:string = `${global_uid++}`;
 	constructor(){
 		this.styleName = "";
-		this.routes = [];
 		this.hashbang = false;
 	}
 	private pushRoute(proute:IRoute){
-		console.log('push:',proute);
+		if(this.base){
+			proute.path = `${this.base}${proute.path}`;
+		}
+		const routerFoundedIndex = global_routes.findIndex(router => router.path === proute.path);
+		if(routerFoundedIndex > -1){
+			this.indexRoutes.push(routerFoundedIndex);
+			global_routes[routerFoundedIndex].nuid = `sub_route_${this.nuid}_${global_routes.length}`;
+			global_routes[routerFoundedIndex].routerView = this;
+			return;
+		}
+		this.indexRoutes.push(global_routes.length);
 		proute.routerView = this;
-		proute.nuid = `sub_route_${this.nuid}_${this.routes.length}`;
-		this.routes.push(proute);
-		page(proute.path,function(context:{canonicalPath:string,params:{}}){
-				if(proute.redirect){
-					(<any>page).redirect(proute.redirect);	
-				}else if(proute.routerView){
-					const {path, view, redirect} = <IRoute>this;
-					(<any>proute.routerView).route = {nuid:proute.nuid, path, view, params:context.params, redirect};
-					console.log('change:',(<any>proute.routerView).route);
-					proute.routerView.refresh();
-				}
-		}.bind(proute));
-	}
-	private attached(){
-		console.log('attached!!!');
-		//(<any>page).start({ hashbang:this.hashbang ? true:false });
-	}
-	private detached(){
-		this.routes.forEach((route,indx) => {
-			if(route.routerView){
-				this.routes[indx].routerView = null;
-				delete this.routes[indx].routerView;
+		proute.nuid = `sub_route_${this.nuid}_${global_routes.length}`;
+		global_routes.push(proute);
+
+		page(proute.path,function (context:{page:{callbacks:Function[]},canonicalPath:string,params:{}}){
+			// console.log(context.page.callbacks.length);
+			if(proute.redirect && proute.routerView){
+				(<any>page).redirect(proute.redirect);	
+			}else if(proute.routerView){
+				const {path, view} = proute;
+				(<any>proute.routerView).route = {nuid:proute.nuid, path, view, params:context.params};
+				//console.log('change:',(<any>proute.routerView).route);
+				proute.routerView.refresh();
 			}
 		});
-		this.routes.length = 0;
+	}
+	private attached(){
+		//console.log('attached!!!',this.hashbang);
+		if(this.hashbang && global_routes.length){
+			(<any>page).start({ hashbang:this.hashbang ? true:false });
+		}
+	}
+	private detached(){
+		this.indexRoutes.forEach(routeIndex => {
+			if(global_routes[routeIndex].routerView){
+				global_routes[routeIndex].routerView = null;
+				delete global_routes[routeIndex].routerView;
+			}
+		});
+		this.indexRoutes.length = 0;
 	}
 }
