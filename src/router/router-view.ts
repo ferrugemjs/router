@@ -6,69 +6,64 @@ export interface IRoute{
 	params?:{};
 	redirect?:string;
 	routerView?:RouterView;
+	nuid:string;
 }
 
-let n_uid_route:number = 554;
-let global_routes:IRoute[] = [];
+const global_routes:IRoute[] = [];
+let global_uid = new Date().getTime();
 
 export class RouterView{
-	private routes:IRoute[];
-	private route:IRoute;
+	public styleName:string;
+	public hashbang:boolean;
+	public base:string;
+	private indexRoutes:number[] = [];
 	private refresh:Function;
-	private styleName:string;
-	private hashbang:boolean;
-	private extId:string;
+	private nuid:string = `${global_uid++}`;
 	constructor(){
 		this.styleName = "";
-		this.routes = [];
 		this.hashbang = false;
-		this.extId = `${this.uid}`;
-	}
-	private get uid():number{
-		return n_uid_route;
 	}
 	private pushRoute(proute:IRoute){
-		let route = Object.assign({},proute);
-		route.routerView = this;
-		page(route.path,function(context:{canonicalPath:string,params:{}}){
-				if(route.redirect){
-					(<any>page).redirect(route.redirect);	
-				}else if(route.routerView){
-					const {path, view, redirect} = <IRoute>this;
-					route.routerView.route = {path, view, params:context.params, redirect};
-					//route.routerView.route = Object.assign({},JSON.parse(JSON.stringify(this)));
-					n_uid_route++;
-					route.routerView.refresh();
-				}
-		}.bind(route));
-		global_routes.push(route);
-	}
-	private updateRoute(proute:IRoute){
+		if(this.base){
+			proute.path = `${this.base}${proute.path}`;
+		}
+		const routerFoundedIndex = global_routes.findIndex(router => router.path === proute.path);
+		if(routerFoundedIndex > -1){
+			this.indexRoutes.push(routerFoundedIndex);
+			global_routes[routerFoundedIndex].nuid = `sub_route_${this.nuid}_${global_routes.length}`;
+			global_routes[routerFoundedIndex].routerView = this;
+			return;
+		}
+		this.indexRoutes.push(global_routes.length);
 		proute.routerView = this;
+		proute.nuid = `sub_route_${this.nuid}_${global_routes.length}`;
+		global_routes.push(proute);
+
+		page(proute.path,function (context:{page:{callbacks:Function[]},canonicalPath:string,params:{}}){
+			// console.log(context.page.callbacks.length);
+			if(proute.redirect && proute.routerView){
+				(<any>page).redirect(proute.redirect);	
+			}else if(proute.routerView){
+				const {path, view} = proute;
+				(<any>proute.routerView).route = {nuid:proute.nuid, path, view, params:context.params};
+				//console.log('change:',(<any>proute.routerView).route);
+				proute.routerView.refresh();
+			}
+		});
 	}
 	private attached(){
-		let localPathsToUpdate:{index:number,path:string}[] = this.routes.map(({path},index) => ({
-			index
-			,path:path
-		}));
-		localPathsToUpdate.forEach(routePath => {
-			let localPathsIndex = global_routes.findIndex(route => route.path === routePath.path);
-			if(localPathsIndex > -1){
-				this.updateRoute(global_routes[localPathsIndex]);
-			}else{
-				this.pushRoute(this.routes[routePath.index]);
-			}
-		});
-		(<any>page).start({ hashbang:this.hashbang ? true:false });
-		this.routes.length = 0;
-		localPathsToUpdate.length = 0;
+		//console.log('attached!!!',this.hashbang);
+		if(this.hashbang && global_routes.length){
+			(<any>page).start({ hashbang:this.hashbang ? true:false });
+		}
 	}
 	private detached(){
-		global_routes.forEach((route,indx) => {
-			if(route.routerView && route.routerView.extId === this.extId){
-				global_routes[indx].routerView = null;
-				delete global_routes[indx].routerView;
+		this.indexRoutes.forEach(routeIndex => {
+			if(global_routes[routeIndex].routerView){
+				global_routes[routeIndex].routerView = null;
+				delete global_routes[routeIndex].routerView;
 			}
 		});
+		this.indexRoutes.length = 0;
 	}
 }

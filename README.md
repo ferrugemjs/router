@@ -67,7 +67,6 @@ eg. init-app.html file
 <rt:router-redirect path="/list-modules"/>
 ```
 
-
 #### redirect with timeout
 
 ``` xml
@@ -77,6 +76,13 @@ eg. init-app.html file
 />
 ```
 
+#### base path
+
+``` xml
+<rt:router-view base="/home/">
+  <route path="list-modules" view="apps/module-list"/>
+</rt:router-view>
+```
 
 #### dinamic route list
 
