@@ -1,6 +1,7 @@
 <template no-model>
 	<require from="ferrugemjs-router as rt" type="namespace"/>
 	<require from="ferrugemjs-router as router-redirect" type="script"/>
+	<require from="apps/module-list"></require>
 	<style>
 		.router-box{
 			padding:10px;
@@ -26,7 +27,13 @@
 		</p>
 		<p>
 			<a href="/sub-route">sub-route</a>
-		</p>		
+		</p>
+		<compose 
+			view:from="apps/module-list" 
+			style-name="router-box"
+			key:id="test_id001"
+		/>
+	
 		<rt:router-view style-name="router-box" hashbang="true" base="/">
 			<route path="" redirect="/index.html"/>
 			<route path="list-modules" view="apps/module-list"/>
@@ -35,10 +42,15 @@
 			<route path="module-b/:id/:name" view="apps/module-b"/>
 			<route path="sub-route" view="apps/sub-route"/>
 		</rt:router-view>
+
+		<!--
+			
+		<rt:router-redirect timeout="400" path="/list-modules"/>
 		<rt:router-redirect timeout="400" path="/list-modules"/>
 		<script if="1 > 4">
 			_rt.redirect({path:"/module-a/12",timeout:8000});
 		</script>
 		<rt:router-redirect timeout="2000" path="/module-a/25"/>	
+		-->
 	</div>
 </template>
