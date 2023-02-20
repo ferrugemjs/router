@@ -17,20 +17,23 @@ export class RouterView{
 	public hashbang:boolean;
 	public base:string;
 	private indexRoutes:number[] = [];
-	private refresh:Function;
+	private $draw:Function;
 	private nuid:string = `${global_uid++}`;
-	constructor(){
-		this.styleName = "";
-		this.hashbang = false;
+	constructor({base = "", styleName = "", hashbang = false} = {}){
+		this.styleName = styleName;
+		this.hashbang = hashbang;
+		this.base = base;
+		
 	}
 	private pushRoute(proute:IRoute){
+		
 		if(this.base){
 			proute.path = `${this.base}${proute.path}`;
 		}
 		const routerFoundedIndex = global_routes.findIndex(router => router.path === proute.path);
 		if(routerFoundedIndex > -1){
 			this.indexRoutes.push(routerFoundedIndex);
-			global_routes[routerFoundedIndex].nuid = `sub_route_${this.nuid}_${global_routes.length}`;
+			//global_routes[routerFoundedIndex].nuid = `sub_route_${this.nuid}_${global_routes.length}`;
 			global_routes[routerFoundedIndex].routerView = this;
 			return;
 		}
@@ -40,20 +43,19 @@ export class RouterView{
 		global_routes.push(proute);
 
 		page(proute.path,function (context:{page:{callbacks:Function[]},canonicalPath:string,params:{}}){
-			// console.log(context.page.callbacks.length);
+			
 			if(proute.redirect && proute.routerView){
 				(<any>page).redirect(proute.redirect);	
 			}else if(proute.routerView){
-				const {path, view} = proute;
-				(<any>proute.routerView).route = {nuid:proute.nuid, path, view, params:context.params};
+				const {nuid, path, view} = proute;
+				(<any>proute.routerView).route = {nuid, path, view, params:context.params};
 				//console.log('change:',(<any>proute.routerView).route);
-				proute.routerView.refresh();
+				//proute.routerView.$draw();
 			}
 		});
 	}
 	private attached(){
-		//console.log('attached!!!',this.hashbang);
-		if(this.hashbang && global_routes.length){
+		if(this.hashbang && global_routes.length === this.indexRoutes.length){
 			(<any>page).start({ hashbang:this.hashbang ? true:false });
 		}
 	}
