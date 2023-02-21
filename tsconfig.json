@@ -1,31 +1,50 @@
 {
     "compilerOptions": {
-        "target": "es5"
-        ,"lib": ["dom", "es6", "es2015"]
-        ,"module": "amd"
-        ,"moduleResolution": "classic"
-        ,"outDir": "./dist"
-        ,"experimentalDecorators": true
-        ,"noImplicitAny":true		
-        ,"sourceMap": false        
-		,"declaration": false
-		,"removeComments":true
-		,"noEmitHelpers":true 
-		,"suppressImplicitAnyIndexErrors": true
-        ,"importHelpers":true
-        ,"baseUrl": "./"
-        ,"paths": {
-            "tslib" : ["node_modules/tslib/tslib.d.ts"]
-            ,"event-emitter-lite":["node_modules/event-emitter-lite/dist/amd/event-emitter.d.ts"]
-            ,"page":["src/router/page.d.ts"]
-            ,"ferrugemjs-router/router-view.html":["src/router/router-view.html"]
-            ,"ferrugemjs-router/router-redirect.html":["src/router/router-redirect.html"]
-            ,"ferrugemjs-router/router-redirect-fn":["src/router/router-redirect-fn"]
+        "target": "es5",
+        "lib": [
+            "dom",
+            "es6",
+            "es2015"
+        ],
+        "module": "amd",
+        "moduleResolution": "classic",
+        "outDir": "./dist",
+        "experimentalDecorators": true,
+        "noImplicitAny": true,
+        "sourceMap": false,
+        "declaration": false,
+        "removeComments": true,
+        "noEmitHelpers": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "importHelpers": true,
+        "baseUrl": "./",
+        "paths": {
+            "tslib": [
+                "node_modules/tslib/tslib.d.ts"
+            ],
+            "event-emitter-lite": [
+                "node_modules/event-emitter-lite/dist/amd/event-emitter.d.ts"
+            ],
+            "page": [
+                "src/router/page.d.ts"
+            ],
+            "ferrugemjs-router/router-view.html": [
+                "src/router/router-view.html"
+            ],
+            "ferrugemjs-router/router-redirect.html": [
+                "src/router/router-redirect.html"
+            ],
+            "ferrugemjs-router/router-redirect-fn": [
+                "src/router/router-redirect-fn"
+            ],
+            "@ferrugemjs/library": [
+                "node_modules/@ferrugemjs/library/dist/core/index.d.ts"
+            ]
         }
     },
     "exclude": [
-        "node_modules"
-		,"dist"
+        "node_modules",
+        "dist"
     ],
     "compileOnSave": false
 }

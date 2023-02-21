@@ -53,3 +53,7 @@ Gulpfile.js
 
 #test
 index.html
+
+test
+test/node_modules
+test/build

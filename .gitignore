@@ -42,3 +42,8 @@ dist
 
 #.npmrc
 .npmrc
+
+test/node_modules
+test/build
+test/init-app.html.js
+test/index.html.js

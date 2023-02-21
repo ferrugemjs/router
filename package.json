@@ -1,14 +1,19 @@
 {
-  "name": "ferrugemjs-router",
-  "version": "2.0.2",
+  "name": "@ferrugemjs/router",
+  "version": "3.0.0",
   "description": "A basic router implementation with jspmPackage",
   "main": "dist/router/index.js",
   "scripts": {
-    "gulp": "./node_modules/.bin/gulp",
-    "watch": "gulp watch",
-    "compile": "gulp compile",
-    "convert": "gulp template",
-    "build": "gulp build"
+    "copy:dist": "copyfiles -f ./dist/src/router/*.js test/node_modules/@ferrugemjs/router/dist/",
+    "copy:test": "copyfiles -f ./dist/test/apps/*.js test/build",
+    "copy:requirejs": "copyfiles  ./node_modules/requirejs/require.js test/",
+    "copy:idom": "copyfiles  ./node_modules/incremental-dom/dist/incremental-dom.js test/",
+    "copy:tslib": "copyfiles  ./node_modules/tslib/tslib.js test/ ",
+    "copy:fjs": "copyfiles  ./node_modules/@ferrugemjs/library/dist/core/*.* test/",
+    "compile": "node ./compile.js",
+    "build": "node node_modules/.bin/tsc --p tsconfig.json",
+    "packageit": "npm run build && npm run copy:dist && npm run copy:test && npm run copy:fjs && npm run copy:requirejs && npm run copy:idom && npm run compile",
+    "preview": "npm run packageit && http-server -p 8114 test/"
   },
   "author": "ferrugemjs",
   "license": "ISC",
@@ -17,20 +22,15 @@
     "url": "https://github.com/ferrugemjs/router"
   },
   "devDependencies": {
-    "ferrugemjs": "2.0.3",
-    "ferrugemjs-node": "2.1.5",
-    "gulp": "3.9.1",
-    "gulp-connect": "^2.3.1",
-    "gulp-ferrugemjs": "^0.19.1",
-    "gulp-jsbeautify": "^0.1.1",
-    "gulp-rename": "^1.4.0",
-    "gulp-typescript": "^4.0.1",
-    "require-dir": "^1.0.0",
-    "requirejs": "^2.3.6",
-    "tslib": "1.9.3",
-    "typescript": "^3.0.3"
+    "@ferrugemjs/library": "3.0.0",
+    "@ferrugemjs/compile": "3.0.2",
+    "requirejs": "2.3.6",
+    "tslib": "2.5.0",
+    "typescript": "4.9.5",
+    "copyfiles": "2.4.1",
+    "http-server": "14.1.1"
   },
   "dependencies": {
-    "page": "^1.11.4"
+    "page": "1.11.6"
   }
 }
