@@ -8,7 +8,7 @@
 This is a basic implementation of routes for "Ferrugemjs", please feel free to do merge requests and improve this router or create your own.
 This router is implemented using [page.js](https://visionmedia.github.io/page.js/).
 
-[![NPM](https://nodei.co/npm/ferrugemjs-router.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ferrugemjs-router/)
+[![NPM](https://nodei.co/npm/@ferrugemjs/router.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/@ferrugemjs/router/)
 
 #### how to start:
 clone
@@ -16,128 +16,118 @@ clone
 
 #### individual install
 
-npm install ferrugemjs-router --save
+npm install @ferrugemjs/router --save
 
 in config.js.
 
-"ferrugemjs-router":"node_modules/ferrugemjs-router/dist/router"
+"@ferrugemjs/router":"node_modules/@ferrugemjs/router/dist"
 
 #### Usage
 
-eg. init-app.html file
+eg. routes-app.html file
 
 ``` xml
-<template no-model>
-  <require from="ferrugemjs-router as rt" type="namespace"/>
-  <div>
-    <rt:router-view>
-      <route path="/list-modules" view="apps/module-list"/>
-      <route path="/module-a/:id" view="apps/module-a"/>
-      <route path="/module-b/:id" view="apps/module-b"/>
-      <route path="/module-b/:id/:name" view="apps/module-b"/>
-    </rt:router-view> 
-    <h1>Router tests</h1>
-    <p>
-      <a href="/list-modules">modules</a>
-    </p>
-    <p>
-      <a href="/module-a/1">module-a</a>
-    </p>
-    <p>
-      <a href="/module-b/2">module-b</a>
-    </p>
-    <p>
-      <a href="/module-b/10/ops">change module-b name and id</a>
-    </p> 
-  </div>
+<template>
+    <require from="@ferrugemjs/router as rt" type="namespace" />
+    <div>
+        <rt:router-view routes="${this.routes}" />
+    </div>
 </template>
 ```
+
+eg. routes-app.ts file
+
+``` ts
+import { Route } from "@ferrugemjs/router";
+
+const ModuleA = () => import("./module-a.html");
+const ModuleB = () => import("./module-b.html");
+const ModuleC = () => import("./module-c.html");
+const ModuleNotFound = () => import("./not-found.html");
+
+export class Routes {
+    public routes: Route[] = [
+        {
+            path: "/module-a",
+            view: ModuleA,
+        },
+        {
+            path: "/module-b/:name",
+            view: ModuleB,
+        },
+        {
+            path: "module-c/:id/:name",
+            view: MuduleC,
+        },
+        {
+            path: "/redirect-test",
+            redirectTo: "/module-a",
+        },
+        {
+            path: "/not-found",
+            view: ModuleNotFound,
+        },
+        {
+            path: "*",
+            redirectTo: "/not-found",
+        },
+    ];
+}
+
+```
+
 
 #### hashbang
 
 ``` xml
-<rt:router-view hashbang="true">
-  <route path="/list-modules" view="apps/module-list"/>
-</rt:router-view> 
+<template>
+    <require from="@ferrugemjs/router as rt" type="namespace" />
+    <div>
+        <rt:router-view routes="${this.routes}" hashbang="true"/>
+    </div>
+</template>
 ```
 
 #### redirect
 
 ``` xml
-<rt:router-redirect path="/list-modules"/>
+<template>
+  <require from="@ferrugemjs/router as rt" type="namespace" />
+  <rt:router-redirect to="/list-modules" />
+</template>
 ```
 
 #### redirect with timeout
 
 ``` xml
-<rt:router-redirect 
-  path="/list-modules"
-  timeout="4000"
-/>
+<template>
+  <require from="@ferrugemjs/router as rt" type="namespace" />
+    <rt:router-redirect 
+      path="/list-modules"
+      timeout="4000"
+    />
+</template>
 ```
 
 #### base path
 
 ``` xml
-<rt:router-view base="/home/">
-  <route path="list-modules" view="apps/module-list"/>
-</rt:router-view>
-```
-
-#### dinamic route list
-
-``` typescript
-constructor(){
-  this.routeList = [
-    {path:"/list-modules",view:"apps/module-list"}
-    ,{path:"/module-a/:id",view:"apps/module-a"}
-    ,{path:"/module-b/:id/:name",view:"apps/module-b"}
-  ];
-}
-
-```
-
-``` xml
-<rt:router-view routes="this.routeList"/>
-```
-
-
-#### redirect from a script tag
-
-``` html
-<script>
-  _rt.redirect({path:"/module-a/12",timeout:8000});
-</script>
-```
-
-
-#### redirect from a representative function
-
-``` xml
 <template>
-  <require from="ferrugemjs-router/index as router-redirect" type="script"/>
-  <div>
-    <router-redirect 
-      path="/list-modules"
-      timeout="3000"
-    />
-  </div>
+    <require from="@ferrugemjs/router as rt" type="namespace" />
+    <div>
+        <rt:router-view routes="${this.routes}" base="/home/"/>
+    </div>
 </template>
 ```
 
-#### redirect from a path to other
+#### redirect from a module
 
-``` xml
-<rt:router-view hashbang="true">
-  <route path="/" redirect="/list-modules"/>
-  <route path="/list-modules" view="apps/module-list"/>
-</rt:router-view> 
-```
+``` ts
+import { redirect, Route } from "@ferrugemjs/router";
 
-#### redirect from "/" to "/index.html"
+....
 
-``` xml
-<rt:router-view hashbang="true">
-  <route path="/" redirect="/index.html"/>
-</rt:router-view> 
+private redirectTest() {
+    redirect("/module-a/manual_redirect");
+}
 ```

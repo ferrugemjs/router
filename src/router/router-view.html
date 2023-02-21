@@ -1,12 +1,3 @@
 <template>
-	<div class="${this.styleName}">
-		<compose
-			if="this.route" 
-			id="${'_uid_route_'+this.route.nuid}"
-			key:id="${'_uid_route_'+this.route.nuid}"
-			view:from="${this.route.view}"
-			prop:values="${this.route.params}"
-		/>
-		<!---->
-	</div>
+	<div class="${this.styleName}" data-router-view-id="${this.nuid}"></div>
 </template>

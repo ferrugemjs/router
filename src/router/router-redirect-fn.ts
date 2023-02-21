@@ -1,7 +1,7 @@
-import page = require("page");
+import PageJS = require("page");
 
-export default ({path, timeout}:{path:string,timeout?:number}) => {
-	setTimeout(()=>{
-		page(path);
-	},parseInt((timeout || 124)+""));
+export default (to: string, timeout?: number) => {
+	setTimeout(() => {
+		PageJS.default.redirect(to);
+	}, Number(`${timeout || 124}`));
 }

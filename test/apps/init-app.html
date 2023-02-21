@@ -1,0 +1,66 @@
+<template no-model>
+	<!-- <require from="@ferrugemjs/router as router-redirect" type="script" /> -->
+	<!-- <require from="@ferrugemjs/router as router-redirect" type="script" /> -->
+	<require from="@ferrugemjs/router as rt" type="namespace" />
+	<!-- <require from="apps/module-list" /> -->
+	<require from="./routes as app-routes" />
+	<style>
+		.router-box {
+			padding: 10px;
+			border: 4px dotted #febabe;
+			float: left;
+			width: 200px;
+			min-height: 200px;
+		}
+	</style>
+	<div>
+		<h1>Router tests</h1>
+		<p>
+			<a href="/list-modules">modules</a>
+		</p>
+		<p>
+			<a href="/module-a/AAAAA">module-a</a>
+		</p>
+		<p>
+			<a href="/not-found">not found link</a>
+		</p>
+		<p>
+			<a href="/module-b/2">module-b</a>
+		</p>
+		<p>
+			<a href="/module-b/10/ops">change module-b name and id</a>
+		</p>
+		<p>
+			<a href="/sub-route">sub-route</a>
+		</p>
+		<p>
+			<a href="/redirect-test">redirect</a>
+		</p>
+
+		<!-- <module-list /> -->
+
+		<app-routes />
+
+		<!-- <compose view:from="apps/module-list" style-name="router-box" key:id="test_id001" /> -->
+
+		<!-- <rt:router-view style-name="router-box" hashbang="true" base="/">
+			<route path="" redirect="/index.html" />
+			<route path="list-modules" view="apps/module-list" />
+			<route path="module-a/:id" view="apps/module-a" />
+			<route path="module-b/:id" view="apps/module-b" />
+			<route path="module-b/:id/:name" view="apps/module-b" />
+			<route path="sub-route" view="apps/sub-route" />
+		</rt:router-view> -->
+
+		<!--
+			
+		<rt:router-redirect timeout="400" path="/list-modules"/>
+		<rt:router-redirect timeout="400" path="/list-modules"/>
+		<script if="1 > 4">
+			_rt.redirect({path:"/module-a/12",timeout:8000});
+		</script>
+		<rt:router-redirect timeout="2000" path="/module-a/25"/>	
+		-->
+		<rt:router-redirect timeout="4000" to="/list-modules" />
+	</div>
+</template>

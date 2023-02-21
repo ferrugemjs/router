@@ -1,12 +1,14 @@
 const fs = require("fs");
 const fjsparse = require("@ferrugemjs/compile/parse/parse");
 
-const compile = (replaceFrom, replaceTo) => (filePath) => {
-    // const filePath = "test/app/main-app.html";
+const compile = (filedir) => (filename) => {
+    const replaceFrom = 'test';
+    const replaceTo = 'test';
+    const filePath = `${filedir}/${filename}`;
     fs.readFile(filePath, function (err, buf) {
         const compiledStr = fjsparse.default(buf.toString(), {
             templateExtension: ".html",
-            viewModel: "main-app",
+            viewModel: filename.replace('.html', ''),
             env: "production" // default is "development"
         });
         fs.writeFile(`${filePath.replace(replaceFrom, replaceTo)}.js`, compiledStr, (err) => {
@@ -16,22 +18,17 @@ const compile = (replaceFrom, replaceTo) => (filePath) => {
     });
 }
 
-const build = (dirname, replaceFrom, replaceTo) => {
+const build = (dirname) => {
     fs.readdir(dirname, function (err, filenames) {
         if (err) {
             onError(err);
             return;
         }
         filenames
-            .map(filename => `${dirname}/${filename}`)
-            .filter(filaPath => filaPath.match(/.html$/gm))
-            .forEach(compile(replaceFrom, replaceTo));
+            .filter(filename => filename.match(/.html$/gm))
+            .forEach(compile(dirname));
     });
-
 }
 
-build('src/router', 'src', 'dist/src');
+build('test/apps');
 
-build('test/apps', 'apps', 'build');
-
-build('test', '', '');

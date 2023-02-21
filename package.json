@@ -2,18 +2,14 @@
   "name": "@ferrugemjs/router",
   "version": "3.0.0",
   "description": "A basic router implementation with jspmPackage",
-  "main": "dist/router/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "copy:dist": "copyfiles -f ./dist/src/router/*.js test/node_modules/@ferrugemjs/router/dist/",
-    "copy:test": "copyfiles -f ./dist/test/apps/*.js test/build",
-    "copy:requirejs": "copyfiles  ./node_modules/requirejs/require.js test/",
-    "copy:idom": "copyfiles  ./node_modules/incremental-dom/dist/incremental-dom.js test/",
-    "copy:tslib": "copyfiles  ./node_modules/tslib/tslib.js test/ ",
-    "copy:fjs": "copyfiles  ./node_modules/@ferrugemjs/library/dist/core/*.* test/",
-    "compile": "node ./compile.js",
-    "build": "node node_modules/.bin/tsc --p tsconfig.json",
-    "packageit": "npm run build && npm run copy:dist && npm run copy:test && npm run copy:fjs && npm run copy:requirejs && npm run copy:idom && npm run compile",
-    "preview": "npm run packageit && http-server -p 8114 test/"
+    "copy:router": "copyfiles -f ./dist/*.* node_modules/@ferrugemjs/router/",
+    "compile:router": "node ./compile.router.js",
+    "compile:test": "node ./compile.test.js",
+    "build": "node node_modules/.bin/tsc --p tsconfig.json && npm run compile:router",
+    "build:test": "node node_modules/.bin/tsc --p tsconfig.test.json && npm run compile:test",
+    "preview": "npm run build && npm run build:test && http-server -p 8114 ./"
   },
   "author": "ferrugemjs",
   "license": "ISC",
@@ -22,13 +18,14 @@
     "url": "https://github.com/ferrugemjs/router"
   },
   "devDependencies": {
-    "@ferrugemjs/library": "3.0.0",
-    "@ferrugemjs/compile": "3.0.2",
+    "@ferrugemjs/compile": "3.0.6",
+    "@ferrugemjs/library": "3.0.4",
+    "@types/page": "^1.11.5",
+    "copyfiles": "2.4.1",
+    "http-server": "14.1.1",
     "requirejs": "2.3.6",
     "tslib": "2.5.0",
-    "typescript": "4.9.5",
-    "copyfiles": "2.4.1",
-    "http-server": "14.1.1"
+    "typescript": "4.9.5"
   },
   "dependencies": {
     "page": "1.11.6"

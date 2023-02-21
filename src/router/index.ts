@@ -1,10 +1,8 @@
-import routerView from "./router-view.html";
-export {routerView};
-
-import routerRedirect from "./router-redirect.html";
-export {routerRedirect};
-
 import redirect from "./router-redirect-fn";
-export {redirect};
+import routerRedirect from "./router-redirect.html";
+import { Route } from "./router-view";
+import routerView from "./router-view.html";
+
+export { routerView, Route, routerRedirect, redirect };
 
 export default redirect;

@@ -8,29 +8,33 @@
         ],
         "module": "amd",
         "moduleResolution": "node",
-        "outDir": "./dist",
+        "outDir": "./test/apps",
         "experimentalDecorators": true,
         "noImplicitAny": true,
         "sourceMap": false,
-        "declaration": true,
+        "declaration": false,
         "removeComments": true,
         "noEmitHelpers": true,
         "suppressImplicitAnyIndexErrors": true,
         "importHelpers": true,
         "baseUrl": "./",
         "paths": {
+            "event-emitter-lite": [
+                "node_modules/event-emitter-lite/dist/amd/event-emitter.d.ts"
+            ],
+            "@ferrugemjs/router": [
+                "node_modules/@ferrugemjs/router/index.d.ts"
+            ],
             "@ferrugemjs/library": [
                 "node_modules/@ferrugemjs/library/dist/index.d.ts"
-            ],
-            "@ferrugemjs/library/platform": [
-                "node_modules/@ferrugemjs/library/dist/platform.d.ts"
             ],
         }
     },
     "exclude": [
         "node_modules",
         "dist",
-        "test",
+        "build-test",
+        "src",
     ],
     "compileOnSave": false
 }
