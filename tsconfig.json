@@ -7,7 +7,7 @@
             "es2015"
         ],
         "module": "amd",
-        "moduleResolution": "node",
+        "moduleResolution": "classic",
         "outDir": "./dist",
         "experimentalDecorators": true,
         "noImplicitAny": true,

@@ -1,6 +1,6 @@
 // import page = require("page");
 import PageJS = require("page");
-import platform from "@ferrugemjs/library/platform";
+import * as fjs from "@ferrugemjs/library";
 
 interface IRoute {
 	path: string;
@@ -53,7 +53,7 @@ export class RouterView {
 										moduleA.prototype[paramKey] = params[paramKey];
 									});
 								}
-								platform.at(document.getElementById(this.elementId), moduleA);
+								fjs.platform.at(document.getElementById(this.elementId), moduleA);
 							}
 						})
 					}

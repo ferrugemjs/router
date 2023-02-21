@@ -20,11 +20,11 @@
     requirejs.config({
       baseUrl: './',
       packages: [
-        // {
-        //   name: "@ferrugemjs/library",
-        //   location: "./node_modules/@ferrugemjs/library/dist",
-        //   main: "index"
-        // },
+        {
+          name: "@ferrugemjs/library",
+          location: "./node_modules/@ferrugemjs/library/dist",
+          main: "index"
+        },
         {
           name: "@ferrugemjs/router",
           location: "./node_modules/@ferrugemjs/router",
@@ -37,20 +37,20 @@
         // ,"event-emitter-lite":"node_modules/event-emitter-lite/dist/amd/EventEmitter"
         "incremental-dom": "./node_modules/incremental-dom/dist/incremental-dom",
         // , "@ferrugemjs/library": "./node_modules/@ferrugemjs/library/dist/index",
-        "@ferrugemjs/library": "node_modules/@ferrugemjs/library/dist",
+        // "@ferrugemjs/library": "node_modules/@ferrugemjs/library/dist/index",
       }
     });
     require([
-      "@ferrugemjs/library/platform",
+      "@ferrugemjs/library",
       "./test/apps/init-app.html",
       // "./test/apps/module-a.html",
     ], function (
       _fjs,
-      _app
+      _app,
     ) {
 
-      // console.log(_fjs.default)
-      _fjs.default.at(document.getElementById("example"), _app.default);
+      // console.log(_fjs)
+      _fjs.platform.at(document.getElementById("example"), _app.default);
       // // console.log(platform);
       // // _bootstrapper.default();
     });

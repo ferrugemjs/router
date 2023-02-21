@@ -1,8 +1,8 @@
 {
   "name": "@ferrugemjs/router",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A basic router implementation with jspmPackage",
-  "main": "dist/index.js",
+  "browser": "dist/index.js",
   "scripts": {
     "copy:router": "copyfiles -f ./dist/*.* node_modules/@ferrugemjs/router/",
     "compile:router": "node ./compile.router.js",
@@ -15,12 +15,12 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ferrugemjs/router"
+    "url": "git+https://github.com/ferrugemjs/router.git"
   },
   "devDependencies": {
-    "@ferrugemjs/compile": "3.0.6",
-    "@ferrugemjs/library": "3.0.4",
-    "@types/page": "^1.11.5",
+    "@ferrugemjs/compile": "3.0.7",
+    "@ferrugemjs/library": "3.0.5",
+    "@types/page": "1.11.5",
     "copyfiles": "2.4.1",
     "http-server": "14.1.1",
     "requirejs": "2.3.6",
@@ -29,5 +29,13 @@
   },
   "dependencies": {
     "page": "1.11.6"
+  },
+  "types": "./dist/index.d.ts",
+  "bugs": {
+    "url": "https://github.com/ferrugemjs/router/issues"
+  },
+  "homepage": "https://github.com/ferrugemjs/router#readme",
+  "directories": {
+    "test": "test"
   }
 }
