@@ -1,6 +1,6 @@
 {
   "name": "@ferrugemjs/router",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "A basic router implementation with jspmPackage",
   "browser": "dist/index.js",
   "scripts": {
@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@ferrugemjs/compile": "3.0.7",
-    "@ferrugemjs/library": "3.0.5",
+    "@ferrugemjs/library": "3.0.6",
     "@types/page": "1.11.5",
     "copyfiles": "2.4.1",
     "http-server": "14.1.1",

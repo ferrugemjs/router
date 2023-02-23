@@ -48,12 +48,7 @@ export class RouterView {
 							if (isObject) {
 								const modName = Object.keys(_modole)[0];
 								const moduleA = _modole[modName];
-								if (params) {
-									Object.keys(params).forEach(paramKey => {
-										moduleA.prototype[paramKey] = params[paramKey];
-									});
-								}
-								fjs.platform.at(document.getElementById(this.elementId), moduleA);
+								fjs.platform.at(document.getElementById(this.elementId), moduleA, params);
 							}
 						})
 					}

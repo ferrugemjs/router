@@ -131,3 +131,16 @@ private redirectTest() {
     redirect("/module-a/manual_redirect");
 }
 ```
+
+eg. tsconfig.json
+
+``` json
+    "paths": {
+        "@ferrugemjs/library": [
+            "node_modules/@ferrugemjs/library/dist/index.d.ts"
+        ],
+        "@ferrugemjs/library/platform": [
+            "node_modules/@ferrugemjs/library/dist/platform.d.ts"
+        ],
+    }
+```
